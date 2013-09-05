@@ -34,6 +34,7 @@ $GLOBALS['slug'] = get_post( $post )->post_name;
 <!--[if IE 9 ]><html class="ie ie9" <?php language_attributes();?>> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes();?>> <!--<![endif]-->
 <head>
+
 	<title><?php //if ( is_category() ) {
 		//echo __('Category Archive for &quot;', 'theme1843'); single_cat_title(); echo __('&quot; | ', 'theme1843'); bloginfo( 'name' );
 	//} elseif ( is_tag() ) {
@@ -273,6 +274,40 @@ function MM_swapImage() { //v3.0
 
       </div>
 		</div><!--.container_12-->
+		<script>
+		//Push data to ga 
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-43779351-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+    		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		//End push data to ga 
+
+  			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  			ga('set', 'anonymizeIp', true);
+  			ga('create', 'UA-43779351-1',  {
+  			'cookieDomain': 'none'
+			});
+  			ga('send', 'pageview', {
+  				'page': '<?php $Path=$_SERVER['REQUEST_URI']; echo $Path;?>',
+  					'hitCallback': function() {
+    			//	testing put data to GA
+    			//	alert('analytics.js done sending data');
+  				}
+			});
+  			ga('send', 'pageview', {
+  '				anonymizeIp': true
+			});
+
+		</script>
 	</header>
 		  
   <div class="primary_content_wrap">
