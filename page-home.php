@@ -57,7 +57,7 @@ get_header();
 				Empolyee Guide</a>
 				<a href="<?php echo get_permalink(1024);?>"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_people.gif"/>
 				People				</a>
-				<a href="https://sharepoint.cargofe.com" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_public_folder.gif"/>
+				<a href="http://sharepoint" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_public_folder.gif"/>
 				Public</a>
 				<a href="<?php echo get_permalink(920);?>"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_Album.gif"/>
 				Album</a>
@@ -102,7 +102,9 @@ get_header();
 	<div>  
 	<table width="635" border="0" cellspacing="0" cellpadding="0">
   	<tr >
- 	   <td class="bg_announcement" width="295"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_announcement.jpg" width="185" height="32" align="absmiddle" />
+ 	   <td class="bg_announcement" width="295">
+		
+ 	   <img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_announcement<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="185" height="32" align="absmiddle" />
 		<?php if (qtrans_getLanguage() == 'en') {?>
     		<a href="./category/announcement/" class="title_more">More >>
     	<?php }else{?>
@@ -167,7 +169,7 @@ wp_reset_postdata();?>
 <table width="100%" style="margin-bottom:3em;"><tr><td valign="top">
 <table width="321" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="321"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_company_org.jpg" alt="" width="321" height="43" /></td>
+    <td width="321"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_company_org<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" alt="" width="321" height="43" /></td>
     <td></td>
   </tr>
   <tr>
@@ -180,7 +182,7 @@ wp_reset_postdata();?>
 </td><td>
 <table width="321" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="321"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_orientation.jpg" alt="" width="321" height="43" /></td>
+    <td width="321"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_orientation<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" alt="" width="321" height="43" /></td>
     <td></td>
   </tr>
   <tr>

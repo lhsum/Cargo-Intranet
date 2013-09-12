@@ -5,7 +5,7 @@
 		if ($GLOBALS['slug'] =='home'){?>
 <div>&nbsp;</div>
 <div><!--<a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_welcome_on.jpg',1)">--
-	--><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_welcome.jpg" width="294" height="54" id="Image1" /><!--</a>--></div>
+	--><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_welcome<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image1" /><!--</a>--></div>
 	
 
 	<div style="max-width:296px; z-index:-1;">
@@ -39,7 +39,7 @@
 <?php
 $dbh = new PDO('mysql:host=localhost;port=3306;dbname=staff;charset=utf8', 'root', '', array( PDO::ATTR_PERSISTENT => false));
 ?>
-	<img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_search_people.jpg" align="absmiddle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="search_advance" href="<?php echo get_permalink(1024);?>">Advance</a>
+	<img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_search_people<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" align="absmiddle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="search_advance" href="<?php echo get_permalink(1024);?>">Advance</a>
 	<div>
 	<?php if (qtrans_getLanguage() == 'en') {?>
     		<form method="post" action="./staff-search-results">
@@ -72,12 +72,12 @@ $dbh = new PDO('mysql:host=localhost;port=3306;dbname=staff;charset=utf8', 'root
 	</form>
 </div>	
 	
-<div><a href="<?php echo get_permalink(930);?>" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_office_warehouse_on.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_office_warehouse.jpg" width="294" height="54" id="Image2" /></a></div>
+<div><a href="<?php echo get_permalink(930);?>" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image2','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_office_warehouse_on<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_office_warehouse<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image2" /></a></div>
 	
 <div>
 	<table width="294" border="0" cellspacing="0" cellpadding="0" class="table_sidebar">
   <tr>
-    <td><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title-staff-recognition.jpg" alt="" width="295" height="44" /></td>
+    <td><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title-staff-recognition<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" alt="" width="295" height="44" /></td>
   </tr>
   <tr>
     <td class="bg_slidebarbox">
@@ -112,7 +112,7 @@ wp_reset_postdata();?>
 <div>
 <table width="294" border="0" cellspacing="0" cellpadding="0" class="table_birthday">
   <tr>
-    <td><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title-birthday.jpg" alt="" width="294" height="53" /></td>
+    <td><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title-birthday<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" alt="" width="294" height="53" /></td>
   </tr>
   <tr>
     <td class="bg_birthday">
@@ -146,7 +146,7 @@ wp_reset_postdata();?>
 <div>
 	<table width="294" border="0" cellspacing="0" cellpadding="0" class="table_sidebar">
   <tr>
-    <td><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title-staff-movement.gif" alt="" width="295" height="44" /></td>
+    <td><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title-staff-movement<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" alt="" width="295" height="44" /></td>
   </tr>
   <tr>
     <td class="bg_slidebarbox">
@@ -178,7 +178,7 @@ wp_reset_postdata();?>
 <div>
 	<table width="294" border="0" cellspacing="0" cellpadding="0" class="table_sidebar">
   <tr>
-    <td><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_whatsnews.jpg" alt="" width="295" height="31" /></td>
+    <td><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/title_whatsnews<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" alt="" width="295" height="31" /></td>
   </tr>
   <tr>
     <td class="bg_slidebarbox">
@@ -228,11 +228,15 @@ wp_reset_postdata();?>
 		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_magazine_on.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_magazine.jpg" width="294" height="54" id="Image7" /></a></div>	
 	<?php }elseif  ($GLOBALS['slug'] =='hr-admin'){?>
 		<div>&nbsp;</div>
-		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_leave_application_on.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_leave_application.jpg" width="294" height="54" id="Image8" /></a></div>	
-		<div><a href="<?php echo $GLOBALS['imgPath'];?>/2013/07/EMPLOYEE GUIDE.pdf" target="_blank" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_empolyee_handbook_on.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_empolyee_handbook.jpg" width="294" height="54" id="Image9" /></a></div>	
-		<!--<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image10','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_conferenceroom_on.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_conferenceroom.jpg" width="294" height="54" id="Image10" /></a></div>	-->
-		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_iso_information_on.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_iso_information.jpg" width="294" height="54" id="Image11" /></a></div>	
-		<div><a href="<?php echo get_permalink(1054);?>" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_jobs_on.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_jobs.jpg" width="294" height="54" id="Image12" /></a></div>	
+		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image8','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_leave_application_on<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_leave_application<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image8" /></a></div>	
+		<div><a href="<?php echo $GLOBALS['imgPath'];?>/2013/07/EMPLOYEE GUIDE.pdf" target="_blank" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_empolyee_handbook_on<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_empolyee_handbook<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image9" /></a></div>	
+		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_policy_on<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_policy<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image11" /></a></div>	
+		<div><a href="<?php echo get_permalink(1054);?>" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_jobs_on<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_jobs<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image12" /></a></div>	
+		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_standard_form_on<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_standard_form<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image15" /></a></div>	
+		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_items_on<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_items<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image16" /></a></div>	
+		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_medical_on<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_medical<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image17" /></a></div>	
+		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_staff_recognition_on<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_staff_recognition<?php if (qtrans_getLanguage() != 'en') { echo "_zh";}?>.jpg" width="294" height="54" id="Image18" /></a></div>	
+
 	<?php }elseif  ($GLOBALS['slug'] =='management-team'){?>
 		<div>&nbsp;</div>
 		<div><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','<?php echo $GLOBALS['imgPath'];?>/2013/07/button_message_management_on.jpg',1)"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/button_message_management.jpg" width="294" height="54" id="Image13" /></a></div>	
