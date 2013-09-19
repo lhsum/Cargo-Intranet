@@ -14,6 +14,14 @@ ini_set('include_path', ini_get('include_path').';../Classes/');
 /** PHPExcel */
 include 'PHPExcel.php';
 echo <<<EOD
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Internal Staff</title>
+</head>
+<body>
 <pre style="font-family:Trebuchet MS;font-size:16px;letter-spacing:0.05em;">
 EOD;
 
@@ -216,10 +224,10 @@ while($rsAllCompany = $stmtAllCompany->fetch(PDO::FETCH_OBJ)){
 $objPHPExcel->setActiveSheetIndex(0);
 
 $today = date("YmdHis"); 
-$fileName = './export_excel/'.$today.'_staff_name_book.xlsx';
+$fileName = './export_excel/'.$today.'_staff_name_book.xls';
 // Save Excel 2007 file
 echo date('H:i:s') . " Write to Excel2007 format\n";
-$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+$objWriter = new PHPExcel_Writer_Excel5($objPHPExcel);
 $objWriter->save($fileName);
 
 // Echo done
@@ -227,7 +235,7 @@ echo date('H:i:s') . " Done writing file.\r\n";
 
 echo "</pre>";
 
-echo "<a href=\"$fileName\" style=\"font-family:Trebuchet MS\">Download File</a>";
+echo "<a href=\"$fileName\" style=\"font-family:Trebuchet MS\">Download File</a></body></html>";
 
 function getNullValue($value){
 	ChromePhp::log("===[" . $value . "]===");

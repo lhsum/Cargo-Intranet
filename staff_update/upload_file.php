@@ -75,6 +75,7 @@ h2{
 		<input type="submit" value="Upload >" class="button">
 	</div>
 </form> 
+<br /><a href="./export_excel.php">Export Excel</a>
 </body>
 
 </html>

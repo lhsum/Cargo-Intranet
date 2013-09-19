@@ -229,7 +229,7 @@ $stmt->bindParam(':last_batch_id',$lastBatchId);
 $stmt->bindParam(':company_id',$companyId);
 $stmt->execute();
 
-echo "DONE<br /><a href=\"./export_excel.php\">Export Excel</a>";
+echo "DONE";
 
 function createPhone($dbh,$staffId,$phone_type,$phone_number,$ext,$lastBatchId){
 	//check duplicate
