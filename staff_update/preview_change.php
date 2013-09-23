@@ -1,4 +1,7 @@
 <?php
+
+get_header(); 
+
 include 'ChromePhp.php';
 $fileName = "";
 
