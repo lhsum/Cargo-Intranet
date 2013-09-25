@@ -53,29 +53,35 @@ get_header();
 			<?php if (qtrans_getLanguage() == 'en') {?>
 				<a href="#"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_News.gif"/>
 				News</a>
-				<a href="<?php echo $GLOBALS['imgPath'];?>/2013/07/EMPLOYEE GUIDE.pdf" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_Handbook.gif"/>
-				Empolyee Guide</a>
-				<a href="<?php echo get_permalink(1024);?>"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_people.gif"/>
-				People				</a>
+				<a href="#" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_Handbook.gif"/>
+				T&C</a>
 				<a href="http://sharepoint" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_public_folder.gif"/>
 				Public</a>
 				<a href="<?php echo get_permalink(920);?>"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_Album.gif"/>
 				Album</a>
 				<a href="#"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_calendar.gif"/>
 				Calendar</a>
+				<a href="#" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_Handbook.gif"/>
+				ISO</a>
+				<a href="<?php echo get_permalink(1024);?>"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_people.gif"/>
+				People				</a>
+
 			<?php }elseif (qtrans_getLanguage() == 'zh'){?>
 				<a href="#"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_News.gif"/>
 				新闻</a>
-				<a href="<?php echo $GLOBALS['imgPath'];?>/2013/07/EMPLOYEE GUIDE.pdf" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_Handbook.gif"/>
-				员工指引</a>
-				<a href="<?php echo get_permalink(1024);?>"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_people.gif"/>
-				人员</a>
+				<a href="#" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_Handbook.gif"/>
+				T&C</a>
 				<a href="https://sharepoint.cargofe.com" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_public_folder.gif"/>
 				共享</a>
 				<a href="<?php echo get_permalink(920);?>"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_Album.gif"/>
 				相簿</a>
 				<a href="#"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_calendar.gif"/>
 				日历</a>
+				<a href="#" target="_blank"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_Handbook.gif"/>
+				ISO</a>
+				<a href="<?php echo get_permalink(1024);?>"><img src="<?php echo $GLOBALS['imgPath'];?>/2013/07/Icon_people.gif"/>
+				People	</a>
+
 			<?php }?>
 							
 		</div>

@@ -6,7 +6,6 @@ $department = $_POST["department"];
 $position = trim($_POST["position"]);
 $email = trim($_POST["email"]);
 $phone = trim($_POST["phone"]);
-$address = $_POST["address"];
 $from = $_POST["from"];
 
 $dbh = new PDO("mysql:host=localhost;port=3306;dbname=staff;charset=utf8", 'root', '', array( PDO::ATTR_PERSISTENT => false));
@@ -16,7 +15,9 @@ $dbh = new PDO("mysql:host=localhost;port=3306;dbname=staff;charset=utf8", 'root
 $searchSQL = "
   FROM staff s
        INNER JOIN department d USING (department_id)
-       INNER JOIN company c USING (company_id) WHERE 1=1 ";
+       INNER JOIN company c USING (company_id)
+       INNER JOIN address a USING (address_id)
+        WHERE 1=1 ";
 
 $searchKeywords = "";	   
 	
@@ -51,20 +52,16 @@ if($phone != ""){
 	$searchKeywords .= " phone contains '" . $phone."',";
 } 
 
-if($address != ""){
-	$searchSQL .= " AND c.address LIKE '%" . $address . "%'";
-	$searchKeywords .= " address contains '" . $address."',";
-}
-
 $searchRecordSQL = "SELECT s.staff_id,
 	   s.email,
        s.english_name,
        s.chinese_name,
        s.position,
 	   s.email,
+	   s.team,
        d.department_name,
        c.english_name AS company_name,
-       c.address,
+       a.address,
 	   c.entity_name " . $searchSQL;
 	   
 
@@ -108,7 +105,11 @@ while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
 	$htmlCode .= '<div class="staff_search_result" >';
 	$htmlCode .= "<table>\n";
 	$htmlCode .= "<tr><td><b>Name</b></td><td>" . $rs->english_name . "&nbsp;&nbsp;" . $rs->chinese_name ."</td></tr>\n";
-	$htmlCode .= "<tr><td><b>Department</b></td><td>" . $rs->department_name . "</td></tr>\n";
+	$htmlCode .= "<tr><td><b>Department</b></td><td>" . $rs->department_name ;
+	if($rs->team != ""){
+		$htmlCode .= "<b>Team</b>" . $rs->team . "\n";
+	}
+	$htmlCode .= "</td></tr>\n";
 	$htmlCode .= "<tr><td><b>Position</b></td><td>" . $rs->position . "</td></tr>\n";
 	$htmlCode .= "<tr><td><b>Email</b></td><td>" . (($rs->email == "")?"-":"<a href=\"mailto:" . $rs->email ."\">".$rs->email."</a>") . "</td></tr>\n";
 	

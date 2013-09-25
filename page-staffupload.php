@@ -1,6 +1,10 @@
 ﻿<?php
 get_header(); 
 
+/**
+ * Template Name: Staff Upload
+ */
+
 $dbh = new PDO('mysql:host=localhost;port=3306;dbname=staff;charset=utf8', 'root', '', array( PDO::ATTR_PERSISTENT => false));
 $message = isset($_GET["message"])?$_GET["message"]:"";
 ?>
@@ -49,16 +53,16 @@ $message = isset($_GET["message"])?$_GET["message"]:"";
 		?>
 
 		<h1>Staff update</h1>
-		<form name="UploadPage" method="post" enctype="multipart/form-data" action="../wp-content/themes/Cargo-Intranet/staff_update/preview_change.php"> 
+		<form name="UploadPage" method="post" enctype="multipart/form-data" action="../staff-preview-change/"> 
 			<div class="section">
 				<h2>1) Select station/branch to update</h2>
 				<select name="branch" class="option">
 					<option value="">-- select station/branch --</option>
 					<?php
-						$stmt = $dbh->prepare("SELECT distinct * FROM company");
+						$stmt = $dbh->prepare("SELECT distinct * FROM location");
 						$stmt->execute();
 						while ($rs = $stmt->fetch(PDO::FETCH_OBJ)){
-							echo "<option value=\"$rs->company_id\">$rs->english_name</option>";
+							echo "<option value=\"$rs->location_id\">$rs->location_name</option>";
 						}
 					?>
 				</select> <br/>
@@ -75,7 +79,7 @@ $message = isset($_GET["message"])?$_GET["message"]:"";
 				<input type="submit" value="Upload >" class="button">
 			</div>
 		</form> 
-		<br /><a href="./export_excel.php">Export Excel</a>
+		<br /><a href="../staff-export/">Export Excel</a>
 		
         </div>
 	</div>
