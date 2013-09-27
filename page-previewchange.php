@@ -1,5 +1,4 @@
 ﻿<?php
-get_header(); 
 
 /**
  * Template Name: Staff Preview Change
@@ -19,7 +18,7 @@ if(isset($_FILES['staff_file'])){
 }
 
 if($locationId == ""){
-	header("Location: ../staff-upload/?message=Please select your station/branch");
+	header("Location: ../staff-upload/?message=Please select branch");
 	exit;
 }
 
@@ -35,10 +34,12 @@ $stmtLocationPassword->execute();
 while($rsLocationPassword = $stmtLocationPassword->fetch(PDO::FETCH_OBJ)){
 	$locationPassword = $rsLocationPassword->password;
 	if($locationPassword != $password){
-		header("Location: ../staff-upload/?message=Invalid%20Password");
+		header("Location: ../staff-upload/?message=Incorrect password");
 		exit;
 	}
 }
+
+get_header(); 
 
 require_once '/wp-content/themes/Cargo-Intranet/Classes/PHPExcel.php';
 
@@ -106,6 +107,18 @@ $processedRecords = array();
 		.remove{
 			background-Color:#CCCCCC;
 			color:#666666;
+		}
+		.section{
+			padding: 10px;
+			border: 2px;
+			border-color: #00b5c7;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			border-style: solid;
+			margin-bottom:4px;
+			margin-right: 14px;
+			width: 965px;
 		}
 		</style>
 		<script type="text/javascript">
@@ -209,7 +222,7 @@ $processedRecords = array();
 
 		$i = 1;
 
-		echo '<table cellpadding="5" cellspacing="0">';
+		echo '<div class="section" style="position:relative;left:-15px;"><table cellpadding="5" cellspacing="0">';
 		echo '<tr>
 		<th>1</th>
 		<th style="width:200px">NAME</th>
@@ -449,7 +462,7 @@ $processedRecords = array();
 			$rs->email;
 		}
 
-		echo "</table>";
+		echo "</table></div>";
 
 		function showDiff($cellFrom,$cellTo,$cellType){
 			if ($cellTo == "-" || $cellTo == '"' || $cellTo == "''" || $cellTo == "'") {

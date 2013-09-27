@@ -53,7 +53,7 @@ $blueFillArray = array(
 		),
 );
 
-$stmtAllLocation = $dbh->prepare("SELECT * FROM location ORDER BY location_id ASC");
+$stmtAllLocation = $dbh->prepare("SELECT * FROM location ORDER BY seq ASC");
 $stmtAllLocation->execute();
 $sheetCount = 0;
 
@@ -98,7 +98,7 @@ while($rsAllLocation = $stmtAllLocation->fetch(PDO::FETCH_OBJ)){
 
 	$sheet->getColumnDimension('A')->setWidth(40);
 	$sheet->getColumnDimension('B')->setWidth(40);
-	$sheet->getColumnDimension('C')->setWidth(13);
+	$sheet->getColumnDimension('C')->setWidth(15);
 	$sheet->getColumnDimension('D')->setWidth(5);
 	$sheet->getColumnDimension('E')->setWidth(27);
 	$sheet->getColumnDimension('F')->setWidth(10);

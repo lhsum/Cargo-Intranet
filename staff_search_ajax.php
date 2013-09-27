@@ -105,14 +105,17 @@ while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
 	$htmlCode .= '<div class="staff_search_result" >';
 	$htmlCode .= "<table>\n";
 	$htmlCode .= "<tr><td><b>Name</b></td><td>" . $rs->english_name . "&nbsp;&nbsp;" . $rs->chinese_name ."</td></tr>\n";
-	$htmlCode .= "<tr><td><b>Department</b></td><td>" . $rs->department_name ;
+	$htmlCode .= "<tr><td><b>Department</b></td><td>" . $rs->department_name . "</td></tr>\n";
 	if($rs->team != ""){
-		$htmlCode .= "<b>Team</b>" . $rs->team . "\n";
+		$htmlCode .= "<tr><td><b>Team</b></td><td>" . $rs->team . "</td></tr>\n";
 	}
-	$htmlCode .= "</td></tr>\n";
+	$htmlCode ;
 	$htmlCode .= "<tr><td><b>Position</b></td><td>" . $rs->position . "</td></tr>\n";
-	$htmlCode .= "<tr><td><b>Email</b></td><td>" . (($rs->email == "")?"-":"<a href=\"mailto:" . $rs->email ."\">".$rs->email."</a>") . "</td></tr>\n";
 	
+	if($rs->email != ""){
+		$htmlCode .= "<tr><td><b>Email</b></td><td><a href=\"mailto:" . $rs->email ."\">".$rs->email."</a></td></tr>\n";
+	}
+
 	$stmtPhone = $dbh->prepare('SELECT p.phone_number, p.phone_type, p.ext
 	  FROM phone p INNER JOIN staff_phone sp USING (phone_id)
 	 WHERE sp.staff_id = :staff_id');
@@ -130,7 +133,7 @@ while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
 		$htmlCode .= "</td></tr>";
 	}
 
-	$htmlCode .= "<tr><td><b>Company Name</b></td><td>" . $rs->company_name . "&nbsp;(". $rs->entity_name .")</td></tr>\n";
+	$htmlCode .= "<tr><td><b>Company</b></td><td>" . $rs->company_name . "&nbsp;</td></tr>\n";
 	$htmlCode .= "<tr><td><b>Address</b></td><td>" . $rs->address . "</td></tr>";
 	
 	$htmlCode .= "</td></tr></table>\n\n";
