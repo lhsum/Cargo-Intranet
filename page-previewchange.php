@@ -146,10 +146,18 @@ $processedRecords = array();
 		});
 		</script>
 
-
 		<h1> Preview Change </h1>
 
 		<?php
+		//get department map
+		$departmentMap = array();
+		$stmtDepartment = $dbh->prepare("SELECT * FROM department ORDER BY department_id ASC");
+		$stmtDepartment->execute();
+			
+		while ($rsDepartment = $stmtDepartment->fetch(PDO::FETCH_OBJ)){
+			$departmentMap[(string)$rsDepartment->department_name] = (string)$rsDepartment->department_name;
+		}
+
 		//get column header
 		foreach ($objWorksheet->getRowIterator() as $row) {
 			
@@ -193,8 +201,8 @@ $processedRecords = array();
 					$objWorksheet->getCell('B' . $rowIndex) != "" &&
 					$objWorksheet->getCell('C' . $rowIndex) == "" &&
 					$objWorksheet->getCell('D' . $rowIndex) == ""){
-					$key = $objWorksheet->getCell('A' . $rowIndex)->getValue();
-					$value = $objWorksheet->getCell('B' . $rowIndex)->getValue();
+					$key = (string)$objWorksheet->getCell('A' . $rowIndex)->getValue();
+					$value = (string)$objWorksheet->getCell('B' . $rowIndex)->getValue();
 
 					$valueMapper[$key] = $value;
 				}
@@ -277,8 +285,8 @@ $processedRecords = array();
 			}
 			if(!empty($columnMapper["ADDRESS"]) && $columnMapper["ADDRESS"] != ""){
 				$addressKey = $objWorksheet->getCell($columnMapper["ADDRESS"] . $rowIndex)->getValue();
-				if($addressKey != null && !empty($valueMapper[$addressKey])){
-					$address = $valueMapper[$addressKey];
+				if($addressKey != null && !empty($valueMapper[(string)$addressKey])){
+					$address = $valueMapper[(string)$addressKey];
 				}
 			}
 			if(!empty($columnMapper["COMPANY"]) && $columnMapper["COMPANY"] != ""){
@@ -353,7 +361,7 @@ $processedRecords = array();
 					echo showDiff($rs->english_name,$name,'string');
 					echo showDiff($company,$company,'string');
 					echo showDiff($rs->position,$position,'string');
-					echo showDiff($department,$department,'string');
+					echo showDiff($departmentMap[(string)$department],$department,'string');
 					echo showDiff($rs->email,$email,'email');
 					echo showDiff($rs->team,$team,'string');
 					echo showDiff($rs->address,$address,'string');

@@ -83,8 +83,8 @@ foreach ($objWorksheet->getRowIterator() as $row) {
 			$objWorksheet->getCell('C' . $rowIndex) == "" &&
 			$objWorksheet->getCell('D' . $rowIndex) == ""){
 			
-			$key = $objWorksheet->getCell('A' . $rowIndex)->getValue();
-			$value = $objWorksheet->getCell('B' . $rowIndex)->getValue();
+			$key = (string)$objWorksheet->getCell('A' . $rowIndex)->getValue();
+			$value = (string)$objWorksheet->getCell('B' . $rowIndex)->getValue();
 
 			$valueMapper[$key] = $value;
 		}
@@ -147,8 +147,8 @@ foreach ($objWorksheet->getRowIterator() as $row) {
 	}
 	if(!empty($columnMapper["ADDRESS"]) && $columnMapper["ADDRESS"] != ""){
 		$addressKey = $objWorksheet->getCell($columnMapper["ADDRESS"] . $rowIndex)->getValue();
-		if($addressKey != null && !empty($valueMapper[$addressKey])){
-			$address = $valueMapper[$addressKey];
+		if($addressKey != null && !empty($valueMapper[(string)$addressKey])){
+			$address = $valueMapper[(string)$addressKey];
 		}
 	}
 	if(!empty($columnMapper["COMPANY"]) && $columnMapper["COMPANY"] != ""){
@@ -157,7 +157,9 @@ foreach ($objWorksheet->getRowIterator() as $row) {
 
 	if($name->getValue() != "NAME" && $name->getValue() != "" && $position->getValue() != ""){
 		$departmentId = -1;
-		//ChromePhp::log(' department name ' . $department);
+		
+		$department = str_replace("  "," ",$department);
+
 		$stmt = $dbh->prepare("SELECT department_id FROM department WHERE department_name = :department");
 		$stmt->bindParam(':department', $department, PDO::PARAM_STR, 40);
 		$stmt->execute();
@@ -165,8 +167,6 @@ foreach ($objWorksheet->getRowIterator() as $row) {
 		while ($rs = $stmt->fetch(PDO::FETCH_OBJ)){
 			$departmentId = $rs->department_id;
 		}
-		
-		//ChromePhp::log(' department ' . $departmentId);
 		
 		//create department if not exist
 		if($departmentId <= 0){
@@ -177,6 +177,7 @@ foreach ($objWorksheet->getRowIterator() as $row) {
 			$departmentId = $dbh->lastInsertId();
 			
 		}
+
 		//get Company
 		$companyId = -1;
 		$stmt = $dbh->prepare("SELECT company_id FROM company WHERE english_name = :english_name");
@@ -207,8 +208,6 @@ foreach ($objWorksheet->getRowIterator() as $row) {
 			while ($rs = $stmt->fetch(PDO::FETCH_OBJ)){
 				$addressId = $rs->address_id;
 			}
-			
-			//ChromePhp::log(' department ' . $departmentId);
 			
 			//create address if not exist
 			if($addressId <= 0){
